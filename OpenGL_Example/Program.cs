@@ -1,14 +1,15 @@
-﻿
-using OpenTK;
+﻿using System.Drawing;
 
-namespace OpenGLExample
+namespace OpenGL_Example
 {
     class Program
     {
         static void Main(string[] args)
         {
             MyWindow window = new MyWindow();
-            window.WindowState = WindowState.Maximized;
+
+            window.Size = new Size(600, 600);
+
             window.Run();
         }
     }

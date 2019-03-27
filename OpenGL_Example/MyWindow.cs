@@ -5,27 +5,26 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
-namespace OpenGLExample
+namespace OpenGL_Example
 {
     public class MyWindow : GameWindow
     {
-        private float _aspect;
+        private List<Rectangle> _rectangles;
         private Random _random;
         private KeyboardState _keyboard;
 
-        private List<Box> _boxes;
-
         private bool _wasSpacePressed = false;
+
 
         public MyWindow()
         {
+            GL.ClearColor(Color.Aqua);
+
+            _rectangles = new List<Rectangle>();
             _random = new Random();
-            _boxes = new List<Box>();
             _keyboard = new KeyboardState(this);
 
-            InitializeBoxes();
-
-            GL.ClearColor(Color.CornflowerBlue);
+            InitializeRectangles();
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -34,12 +33,10 @@ namespace OpenGLExample
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            foreach (var box in _boxes)
+            foreach (var rectangle in _rectangles)
             {
-                DrawRectangle(box.Position, box.Size, box.Color);
+                DrawRectangle(rectangle.Position, rectangle.Size, rectangle.Color);
             }
-
-
 
             SwapBuffers();
         }
@@ -48,9 +45,9 @@ namespace OpenGLExample
         {
             base.OnUpdateFrame(e);
 
-            if (_keyboard.IsKeyPressed(Key.Space) &&!_wasSpacePressed)
+            if (_keyboard.IsKeyPressed(Key.Space) && !_wasSpacePressed)
             {
-                InitializeBoxes();
+                InitializeRectangles();
             }
 
             _wasSpacePressed = _keyboard.IsKeyPressed(Key.Space);
@@ -61,20 +58,12 @@ namespace OpenGLExample
             base.OnResize(e);
 
             GL.Viewport(0, 0, Width, Height);
-            _aspect = (float)Height / Width;
-
-            GL.LoadIdentity();
-            GL.Scale(_aspect, 1f, 1f);
-
-            foreach (var box in _boxes)
-            {
-                box.Aspect = _aspect;
-            }
         }
 
         private void DrawRectangle(Vector2 position, float size, Color color)
         {
             GL.Color3(color);
+
             GL.Begin(PrimitiveType.Quads);
             GL.Vertex2(position + new Vector2(-size / 2, -size / 2));
             GL.Vertex2(position + new Vector2(size / 2, -size / 2));
@@ -83,13 +72,16 @@ namespace OpenGLExample
             GL.End();
         }
 
-        private void InitializeBoxes()
+        private void InitializeRectangles()
         {
-            _boxes.Clear();
+            _rectangles.Clear();
 
             for (int i = 0; i < 10; i++)
             {
-                _boxes.Add(new Box(_random, _aspect));
+                Vector2 position = new Vector2((float)_random.NextDouble() * 2 - 1, (float)_random.NextDouble() * 2 - 1);
+                float size = (float)_random.NextDouble() * 0.45f + 0.05f;
+                Color color = Color.Red;
+                _rectangles.Add(new Rectangle(position, size, color));
             }
         }
     }

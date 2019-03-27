@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OpenGLExample")]
+[assembly: AssemblyTitle("OpenGL_Example")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OpenGLExample")]
+[assembly: AssemblyProduct("OpenGL_Example")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4ece6ce7-ea26-4e0d-b75f-bb96cce423fd")]
+[assembly: Guid("8236b857-8c91-4abd-8694-f755adec79a4")]
 
 // Version information for an assembly consists of the following four values:
 //

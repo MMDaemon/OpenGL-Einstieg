@@ -2,26 +2,27 @@
 using OpenTK;
 using OpenTK.Input;
 
-namespace OpenGLExample
+namespace OpenGL_Example
 {
     class KeyboardState
     {
-        private HashSet<Key> _pushedKeys = new HashSet<Key>();
+        private HashSet<Key> _pressedKeys;
 
         public KeyboardState(INativeWindow window)
         {
+            _pressedKeys = new HashSet<Key>();
             window.KeyDown += Window_KeyDown;
-            window.KeyUp += (sender, e) => _pushedKeys.Remove(e.Key);
+            window.KeyUp += (sender, e) => _pressedKeys.Remove(e.Key);
         }
 
         private void Window_KeyDown(object sender, KeyboardKeyEventArgs e)
         {
-            _pushedKeys.Add(e.Key);
+            _pressedKeys.Add(e.Key);
         }
 
         public bool IsKeyPressed(Key key)
         {
-            return _pushedKeys.Contains(key);
+            return _pressedKeys.Contains(key);
         }
     }
 }
