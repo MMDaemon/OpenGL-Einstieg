@@ -5,7 +5,7 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
-namespace OpenGL_Example
+namespace OpenGLExample
 {
     public class MyWindow : GameWindow
     {
@@ -15,16 +15,16 @@ namespace OpenGL_Example
 
         private bool _wasSpacePressed = false;
 
-
         public MyWindow()
         {
-            GL.ClearColor(Color.Aqua);
-
             _rectangles = new List<Rectangle>();
             _random = new Random();
             _keyboard = new KeyboardState(this);
 
             InitializeRectangles();
+
+            GL.ClearColor(Color.Blue);
+            GL.Color3(Color.Red);
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -33,9 +33,9 @@ namespace OpenGL_Example
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            foreach (var rectangle in _rectangles)
+            foreach (Rectangle rectangle in _rectangles)
             {
-                DrawRectangle(rectangle.Position, rectangle.Size, rectangle.Color);
+                DrawRectangle(rectangle.Position, rectangle.Size);
             }
 
             SwapBuffers();
@@ -60,10 +60,8 @@ namespace OpenGL_Example
             GL.Viewport(0, 0, Width, Height);
         }
 
-        private void DrawRectangle(Vector2 position, float size, Color color)
+        private void DrawRectangle(Vector2 position, float size)
         {
-            GL.Color3(color);
-
             GL.Begin(PrimitiveType.Quads);
             GL.Vertex2(position + new Vector2(-size / 2, -size / 2));
             GL.Vertex2(position + new Vector2(size / 2, -size / 2));
@@ -78,10 +76,7 @@ namespace OpenGL_Example
 
             for (int i = 0; i < 10; i++)
             {
-                Vector2 position = new Vector2((float)_random.NextDouble() * 2 - 1, (float)_random.NextDouble() * 2 - 1);
-                float size = (float)_random.NextDouble() * 0.45f + 0.05f;
-                Color color = Color.Red;
-                _rectangles.Add(new Rectangle(position, size, color));
+                _rectangles.Add(new Rectangle(new Vector2((float)_random.NextDouble() * 2 - 1, (float)_random.NextDouble() * 2 - 1), (float)_random.NextDouble() * 0.49f + 0.01f));
             }
         }
     }

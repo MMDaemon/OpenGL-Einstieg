@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL_Example", "OpenGL_Example\OpenGL_Example.csproj", "{8236B857-8C91-4ABD-8694-F755ADEC79A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGLExample", "OpenGLExample\OpenGLExample.csproj", "{6A9162DA-6CC0-4975-A854-98B4AF550A11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8236B857-8C91-4ABD-8694-F755ADEC79A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8236B857-8C91-4ABD-8694-F755ADEC79A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8236B857-8C91-4ABD-8694-F755ADEC79A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8236B857-8C91-4ABD-8694-F755ADEC79A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9162DA-6CC0-4975-A854-98B4AF550A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9162DA-6CC0-4975-A854-98B4AF550A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9162DA-6CC0-4975-A854-98B4AF550A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9162DA-6CC0-4975-A854-98B4AF550A11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {951645C8-EF35-476C-8412-BD9CEEEF53F8}
+		SolutionGuid = {608C3275-6877-4585-A95C-2F4B22BA4221}
 	EndGlobalSection
 EndGlobal

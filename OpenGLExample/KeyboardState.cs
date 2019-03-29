@@ -2,11 +2,11 @@
 using OpenTK;
 using OpenTK.Input;
 
-namespace OpenGL_Example
+namespace OpenGLExample
 {
-    class KeyboardState
+    public class KeyboardState
     {
-        private HashSet<Key> _pressedKeys;
+        private readonly HashSet<Key> _pressedKeys;
 
         public KeyboardState(INativeWindow window)
         {
